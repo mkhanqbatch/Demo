@@ -1,0 +1,25 @@
+:root {
+  /* --primaryColor:#222967; */
+  --primaryColor: #073057;
+  --form_bg_color: white;
+  --light-green:greenyellow;
+  --white:white;
+  --green:green;
+  --red:red;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+}

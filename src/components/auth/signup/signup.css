@@ -1,0 +1,90 @@
+.login_background_div {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_content_div {
+  min-width: 70%;
+  min-height: 70vh;
+  display: flex;
+  /* -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg); */
+  /* transform: rotateY(180deg); */
+}
+
+.login_wlp_div {
+  min-width: 30%;
+  min-height: 100%;
+  background-image: url('/public/login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+
+.login_form_div {
+  width: 70%;
+  min-height: 100%;
+  background-color: var(--form_bg_color);
+
+}
+
+.login_form_content_div {
+  padding: 40px 30px;
+}
+
+.login_form_content_upper_div {
+  display: flex;
+  justify-content: center;
+
+}
+
+.logo_img {
+  width: 80px;
+}
+
+.login_form_content_upper_lng_div {
+  width: 100%;
+  width: fit-content;
+  float: right;
+
+}
+
+.lng_btn {
+  padding: 5px 10px;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--form_bg_color);
+}
+
+.login_form_content_from_div {
+  margin-top: 10px;
+}
+
+.forget_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit_btn {
+  width: 100%;
+}
+
+
+@media screen and (max-width: 680px) {
+  .login_form_div {
+    width: 100%;
+  }
+
+  .login_wlp_div {
+    display: none;
+  }
+}

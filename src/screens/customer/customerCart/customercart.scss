@@ -1,0 +1,97 @@
+.customer-cart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .products {
+    width: 70%;
+
+    padding: 20px;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    .product {
+      padding: 10px;
+      height: 120px;
+      border: 1px solid rgb(224, 221, 221);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .price {
+          color: var(--red);
+        }
+      }
+      .add-remove-cart {
+        display: flex;
+        width: 130px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        background-color: aliceblue;
+
+        .btn {
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .rmv {
+          background-color: var(--red);
+          color: var(--white);
+          cursor: pointer;
+        }
+        .add {
+          background-color: var(--green);
+          color: var(--white);
+          cursor: pointer;
+        }
+      }
+    }
+    .check-out {
+      align-self: flex-end;
+      width: 50%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 20px;
+      .row {
+        width: 100%;
+        padding: 0px 10px;
+        display: flex;
+        justify-content: space-between;
+        .check-out-btn {
+          background-color: var(--green);
+          width: 100px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 20px;
+          text-align: center;
+          padding: 5px;
+          color: var(--white);
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+    .check-out-details {
+    }
+  }
+}

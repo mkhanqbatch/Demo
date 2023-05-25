@@ -1,0 +1,38 @@
+.x-checkout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .go-back {
+    width: 50%;
+    background-color: blue;
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 200px;
+    left: 24%;
+    width: fit-content;
+    cursor: pointer;
+  }
+  .top-heading {
+    width: 50%;
+    margin: 10px 0px;
+    padding: 10px;
+    text-align: center;
+  }
+  .chk-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid wheat;
+    padding: 10px;
+    button {
+      width: fit-content;
+      align-self: center;
+      padding: 5px 10px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.customer-layout {
+  min-height: 100vh;
+  width: 100%;
+  .nav-bar {
+    width: 100%;
+    position: fixed;
+    height: 70px;
+    background-color: rgb(49, 48, 48);
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3 {
+      color: var(--white);
+      padding-left: 20px;
+      cursor: pointer;
+    }
+    .cart-icon {
+      font-size: 30px;
+      color: var(--light-green);
+      padding-right: 30px;
+      cursor: pointer;
+    }
+    .log-out {
+      font-size: 20px;
+      color: rgb(251, 93, 93);
+      padding-right: 20px;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      min-width: 15px;
+      min-height: 15px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--light-green);
+      color: var(--light-green);
+      top: 5px;
+      right: 30px;
+      font-size: 13px;
+    }
+  }
+  .side-bar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    width: 250px;
+    background-color: white;
+    border-right: 1px solid rgb(242, 237, 237);
+    img {
+      width: 50px;
+      height: 50px;
+      padding: 20px;
+    }
+  }
+  .content {
+    padding-top: 75px;
+    padding-left: 255px;
+    min-height: 100vh;
+  }
+}

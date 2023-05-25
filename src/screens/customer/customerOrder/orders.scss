@@ -1,0 +1,24 @@
+.customer-orders {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .top-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input {
+      padding: 7px;
+      width: 200px;
+      border-radius: 10px;
+    }
+  }
+  .icon {
+    color: var(--primaryColor);
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .edit {
+    color: var(--primaryColor);
+  }
+}
