@@ -9,6 +9,7 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 function SellerOrdersTable({ data: tableData }) {
+  // console.log("table data ", tableData);
   const { loading } = useSelector((state) => state.order);
   const { token, user } = useSelector((state) => state.users);
   const [showOrdersDetails, setShowOrdersDetails] = useState(false);
@@ -17,18 +18,7 @@ function SellerOrdersTable({ data: tableData }) {
   const dispatch = useDispatch();
   const [orderInfo, setOrderInfo] = useState(null);
   const dropHandler = ({ key }, order) => {
-    let orderStatus = order?.orderStatus;
-    let obj_index = orderStatus?.findIndex((os) => os.key == key);
-    let newOrdersts = orderStatus?.map((order) => {
-      return {
-        ...order,
-        status: false,
-      };
-    });
-    newOrdersts[obj_index].status = true;
-    dispatch(
-      updateOrderStatus({ token, orderId: order._id, orderStatus: newOrdersts })
-    );
+    dispatch(updateOrderStatus({ token, orderId: order._id, status: key }));
     setUpdatedFlag(updatedFlag + 1);
   };
   const columns = [
@@ -50,14 +40,19 @@ function SellerOrdersTable({ data: tableData }) {
     {
       title: "Order Status",
       render: (record) => {
-        let items = record.orderStatus;
+        let items = [
+          { key: "Pending", label: "Pending" },
+          { key: "InProgress", label: "InProgress" },
+          { key: "Dispatched", label: "Dispatched" },
+          { key: "Delivered", label: "Delivered" },
+        ];
         return (
           <Dropdown
             menu={{ items, onClick: (e) => dropHandler(e, record) }}
             trigger={["click"]}
           >
             <Space>
-              {items.filter((val) => val.status)[0].label}
+              {record.status}
               <DownOutlined />
             </Space>
           </Dropdown>

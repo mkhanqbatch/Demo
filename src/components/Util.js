@@ -7,5 +7,5 @@ export const getDataFromSessionStorage = (key) => {
   return JSON.parse(window.sessionStorage.getItem(key));
 };
 export const api = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "http://localhost:5000/v1/",
 });

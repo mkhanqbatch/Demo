@@ -23,9 +23,7 @@ function CustomerOrdersTable({ data }) {
     {
       title: "Status",
       render: (record) => {
-        return (
-          <span>{record.orderStatus.filter((val) => val.status)[0].label}</span>
-        );
+        return <span>{record.status}</span>;
       },
     },
   ];

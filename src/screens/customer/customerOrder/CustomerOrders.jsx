@@ -11,7 +11,8 @@ function CustomerOrders() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, success, orders } = useSelector((state) => state.order);
+  const { loading, success, orders } = useSelector((state) => state?.order);
+  console.log("user orders ", orders);
   const { token, user } = useSelector((state) => state.users);
   const [query, setQuery] = useState("");
   const unique = (data) => {
@@ -24,7 +25,7 @@ function CustomerOrders() {
           orderNumber: oNum,
         };
       })
-      .filter((order) =>
+      ?.filter((order) =>
         keys.some((key) => order[key]?.toLowerCase()?.includes(query))
       );
   };
@@ -32,7 +33,7 @@ function CustomerOrders() {
   useEffect(() => {
     dispatch(customerOrder({ token, userId: user._id }));
   }, []);
-  useEffect(() => {}, [orders]);
+  // useEffect(() => {}, [orders]);
   return (
     <div className="customer-orders">
       {loading ? <Loader /> : null}

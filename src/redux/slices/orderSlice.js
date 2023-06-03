@@ -106,19 +106,19 @@ export const sellerOrder = createAsyncThunk(
 export const updateOrderStatus = createAsyncThunk(
   "orders/updateOrdersStatus",
   async (data, thunkAPI) => {
-    console.log("data is ", data);
+    // console.log("data is ", data);
     try {
-      const { orderId, orderStatus, token } = data;
+      const { orderId, status, token } = data;
       const response = await api.post(
         "orders/updateOrderStatus",
-        { orderId, orderStatus },
+        { orderId, status },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      console.log("response ", response.data);
+      // console.log("response ", response.data);
       return response.data;
     } catch (err) {
       if (err.response && err.response.data) {

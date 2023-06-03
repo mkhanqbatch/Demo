@@ -12,19 +12,47 @@ function UploadFile() {
   const [form] = Form.useForm();
   const onFinish = async (values) => {
     const { productFile } = values;
+    const { name } = productFile;
+    let key = "";
+    if (name.length > 20) {
+      let nameArr = name.split(".");
+      key = `${name
+        .slice(0, 20)
+        .split(/[\s,]+/)
+        .join("")}${Date.now()}.${nameArr.at(-1)}`;
+      console.log(key);
+    } else {
+      let nameArr = name.split(".");
+      key = `${nameArr[0].split(" ").join("")}-${Date.now()}.${nameArr.at(-1)}`;
+      console.log(key);
+    }
     setLoading(true);
     try {
       var formData = new FormData();
       formData.append("productFile", productFile);
-      formData.append("sellerId", user._id);
-      let url = `products/uploadFile`;
-      const response = await api.post(url, formData, {
+      const params = { bucket: "khan.qbatch", key };
+      // let url = `products/uploadFile`;
+      let url = `products/presigned-url`;
+      const response = await api.post(url, params, {
         headers: {
-          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       });
-      message.info(response.data);
+
+      const uploadFile = await api.put(response.data, productFile);
+      const uploadFileInfo = await api.post(
+        "products/save-file-info",
+        {
+          ...params,
+          sellerId: user._id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("file info ", uploadFileInfo);
       setLoading(false);
       form.resetFields();
     } catch (e) {
